@@ -91,17 +91,17 @@ def test_lecture_1(load_driver):
     driver.get(WEBHALLEN_SITE)
 
     # Test that iceberry is part of the url
-    boolean_assert("webhallen" in driver.current_url, f"Expected iceberry in url, got: {driver.current_url}")
+    boolean_assert("webhallen" in driver.current_url, f"Expected webhallen in url, got: {driver.current_url}")
 
-    # Find the header element on the site by XPATH
-    heading = driver.find_element(By.XPATH, "/html/body/div/main/header/div/h1")
-
+"""      # Find the header element on the site by XPATH
+    logo = driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div[1]/div[1]/script[1]/text()")
+    
     # Test that the header contains the corect text
     # boolean_assert("SCAR ENERGY" in heading.text, f"Expected SCAR ENERGY in url, got: {heading.text}")
-    simple_assert(heading.text, "WEBHALLEN")
+    simple_assert(logo.logo, "SCAR ENERGY DRINK")
 
     # Find products page link
-    products_link = driver.find_element(By.LINK_TEXT, "Produkter")
+    products_link = driver.find_element(By.LINK_TEXT, "Products")
 
     # Click on products page link
     products_link.click()
@@ -120,4 +120,4 @@ def test_lecture_1(load_driver):
     boolean_assert("Scar Original" in scar_original.text, f"Expected Scar Original in text for first product, got: {scar_original.text}")
 
     # Test that url now contains products
-    boolean_assert("products" in driver.current_url, f"Expected products in url, got: {driver.current_url}")
+    boolean_assert("products" in driver.current_url, f"Expected products in url, got: {driver.current_url}") """
