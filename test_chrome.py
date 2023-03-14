@@ -9,7 +9,7 @@ from helper_tests import simple_assert, boolean_assert
 # Constants
 # -----------------------------------------------------------------------------------------------------------------------------------------------
 SELENIUM_SITE = "https://www.selenium.dev/selenium/web/web-form.html"
-ICEBERRY_SITE = "https://scar.sandbox.iceberry.se/"
+WEBHALLEN_SITE = "https://www.webhallen.com/"
 
 # Fixtures and helpers
 # -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -88,20 +88,20 @@ def test_lecture_1(load_driver):
     driver = load_driver
 
     # Load iceberry website
-    driver.get(ICEBERRY_SITE)
+    driver.get(WEBHALLEN_SITE)
 
     # Test that iceberry is part of the url
-    boolean_assert("iceberry" in driver.current_url, f"Expected iceberry in url, got: {driver.current_url}")
+    boolean_assert("webhallen" in driver.current_url, f"Expected iceberry in url, got: {driver.current_url}")
 
     # Find the header element on the site by XPATH
     heading = driver.find_element(By.XPATH, "/html/body/div/main/header/div/h1")
 
     # Test that the header contains the corect text
     # boolean_assert("SCAR ENERGY" in heading.text, f"Expected SCAR ENERGY in url, got: {heading.text}")
-    simple_assert(heading.text, "SCAR ENERGY DRINK")
+    simple_assert(heading.text, "WEBHALLEN")
 
     # Find products page link
-    products_link = driver.find_element(By.LINK_TEXT, "Products")
+    products_link = driver.find_element(By.LINK_TEXT, "Produkter")
 
     # Click on products page link
     products_link.click()
