@@ -1,14 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pytest
-# import time
+import time
 from selenium.webdriver.support.wait import WebDriverWait
 
 from helper_tests import simple_assert, boolean_assert
 
 # Constants
 # -----------------------------------------------------------------------------------------------------------------------------------------------
-SELENIUM_SITE = "https://www.selenium.dev/selenium/web/web-form.html"
 WEBHALLEN_SITE = "https://www.webhallen.com/"
 
 @pytest.fixture
@@ -18,7 +17,7 @@ def load_driver():
     # If we have an older version, or if Selenium Managers somehow does not work on your system, follow this guide for installing the correct driver:
     # https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Edge()
 
     # NOT THE BEST SOLUTION BUT USE IT AS A PLACEHOLDER
     # WARNING: THIS DOES NOT WORK WITH EXPLICIT WAIT
@@ -32,17 +31,22 @@ def load_driver():
 # -----------------------------------------------------------------------------------------------------------------------------------------------
 
 
-def test_1(load_driver):
-
+def test_open_website(load_driver):
+    # Load selenium driver
     driver = load_driver
+    # Load webhallen website
+    driver.get(WEBHALLEN_SITE)
 
-    driver.get(SELENIUM_SITE)
-
+def test_pagetitle (load_driver):
+    driver = load_driver
+    driver.get(WEBHALLEN_SITE)
     # Test the title of the page
     title = driver.title
-    simple_assert(title, "Web form")
+    time.sleep(10)
+    simple_assert(title, "För gamers och teknikentusiaster - Webhallen.com")
 
-    # Finding elements:
+
+"""     # Finding elements:
     text_box = driver.find_element(by=By.NAME, value="my-text")
     submit_button = driver.find_element(by=By.CSS_SELECTOR, value="button")
 
@@ -56,3 +60,4 @@ def test_1(load_driver):
 
     # Validate output
     simple_assert(value, "Received!")
+ """

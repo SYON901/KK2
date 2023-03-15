@@ -28,7 +28,7 @@ def load_driver():
     # If we have an older version, or if Selenium Managers somehow does not work on your system, follow this guide for installing the correct driver:
     # https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Edge()
 
     # NOT THE BEST SOLUTION BUT USE IT AS A PLACEHOLDER
     # WARNING: THIS DOES NOT WORK WITH EXPLICIT WAIT
@@ -87,14 +87,20 @@ def test_lecture_1(load_driver):
     # Load Selenium webdriver
     driver = load_driver
 
-    # Load iceberry website
+    # Load webhallen website
     driver.get(WEBHALLEN_SITE)
 
-    # Test that iceberry is part of the url
+    # Test that webhallen is part of the url
     boolean_assert("webhallen" in driver.current_url, f"Expected webhallen in url, got: {driver.current_url}")
 
+    heading = driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div[1]/div[2]/div/header/div/div/div[1]/a")
+
+    # Test that the header contains the corect text
+    boolean_assert("webhallen" in heading.text, f"Expected SCAR ENERGY in url, got: {heading.text}")
+    #simple_assert(heading.arialabel, "Webhallen home")
+
 """      # Find the header element on the site by XPATH
-    logo = driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div[1]/div[1]/script[1]/text()")
+    logo = driver.find_element(By., "/html/body/div[2]/div[1]/div[1]/div[1]/script[1]/text()")
     
     # Test that the header contains the corect text
     # boolean_assert("SCAR ENERGY" in heading.text, f"Expected SCAR ENERGY in url, got: {heading.text}")
