@@ -13,10 +13,6 @@ WEBHALLEN_SITE = "https://www.webhallen.com/"
 @pytest.fixture
 def load_driver():
 
-    # Selenium 4.6 and above use a BETA version of Selenium Manager which automatically handles the browser drivers
-    # If we have an older version, or if Selenium Managers somehow does not work on your system, follow this guide for installing the correct driver:
-    # https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/
-
     driver = webdriver.Edge()
 
     # NOT THE BEST SOLUTION BUT USE IT AS A PLACEHOLDER
