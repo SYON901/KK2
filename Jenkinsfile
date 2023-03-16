@@ -11,7 +11,7 @@ pipeline {
                 // ------------------------
                 // Bytte ut "sh" mot "bat" eftersom min dator är en Windows. Detta behöver man inte göra om man använder Linux
                 dir('C:\Users\samwi\gitEC\KK2\test_edge'){
-                    bat 'python -m pytest'
+                    bat 'pytest'
                 }
             }
         }
