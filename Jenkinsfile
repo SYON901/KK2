@@ -10,7 +10,7 @@ pipeline {
                 // Ändring 2
                 // ------------------------
                 // Bytte ut "sh" mot "bat" eftersom min dator är en Windows. Detta behöver man inte göra om man använder Linux
-                dir('C:/Users/samwi/gitEC/KK2/test_edge.py'){
+                dir('C:/Users/samwi/gitEC/KK2/test_edge'){
                     bat 'pytest'
                 }
             }
